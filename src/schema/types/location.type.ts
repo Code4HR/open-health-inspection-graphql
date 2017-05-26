@@ -23,5 +23,7 @@ type Location {
   locality_url: String
   vendor_location: String
   geo: Geo
+  latitude: Float
+  longitude: Float
 }
 `;

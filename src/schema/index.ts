@@ -7,6 +7,7 @@ const modules = [
   require("./types/violation.type"),
   require("./types/inspection.type"),
   require("./types/location.type"),
+  require("./types/cluster.type"),
   require("./queries/location.query")
 ];
 

@@ -42,12 +42,15 @@
     "graphql-server-express": "^0.7.2",
     "graphql-tools": "0.11.0",
     "helmet": "^3.6.0",
+    "lodash-es": "^4.17.4",
     "mongoose": "^4.10.1",
-    "morgan": "^1.8.1"
+    "morgan": "^1.8.1",
+    "node-kmeans": "^1.1.0"
   },
   "devDependencies": {
     "@types/graphql": "^0.9.1",
     "@types/jest": "^19.2.3",
+    "@types/lodash-es": "^4.14.5",
     "@types/mongodb": "^2.2.2",
     "@types/mongoose": "^4.7.13",
     "@types/node": "^7.0.18",

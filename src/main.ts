@@ -32,6 +32,16 @@ export const main = async(options: IMainOptions) => {
     const db = await MongoClient.connect(MONGO_URL)
     const Locations = db.collection('locations')
     let app = express();
+    Locations.find().forEach(function(doc){
+      if(doc.geo != null){
+        let latitude = doc.geo.coordinates[1];
+        let longitude = doc.geo.coordinates[0];
+        doc.latitude = latitude;
+        doc.longitude = longitude;
+        Locations.save(doc); 
+      }
+    }, null)
+
     app.use(helmet());
     app.use(morgan(options.env));
 
@@ -70,13 +80,13 @@ export const main = async(options: IMainOptions) => {
 
 /* istanbul ignore if: main scope */
 if (require.main === module) {
-  const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT || 4500;
   const NODE_ENV = process.env.NODE_ENV !== "production" ? "dev" : "production";
   const EXPORT_GRAPHIQL = NODE_ENV !== "production";
   const ENABLE_CORS = NODE_ENV !== "production";
 
   main({
-    enableCors: ENABLE_CORS,
+    enableCors: true,
     enableGraphiql: EXPORT_GRAPHIQL,
     env: NODE_ENV,
     port: PORT,
