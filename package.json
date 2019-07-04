@@ -15,7 +15,9 @@
     "start": "npm run build && node dist/main.js",
     "start:watch": "concurrently \"npm run build:watch\" \"node-dev dist/main.js\"",
     "preupver": "npm test",
-    "upver": "standard-version"
+    "upver": "standard-version",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "apollo",
@@ -45,7 +47,8 @@
     "lodash-es": "^4.17.4",
     "mongoose": "^4.10.1",
     "morgan": "^1.8.1",
-    "node-kmeans": "^1.1.0"
+    "node-kmeans": "^1.1.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@types/graphql": "^0.9.1",
@@ -66,5 +69,6 @@
     "typescript": "2.3.2",
     "webpack": "^2.5.1",
     "webpack-node-externals": "^1.6.0"
-  }
+  },
+  "snyk": true
 }
